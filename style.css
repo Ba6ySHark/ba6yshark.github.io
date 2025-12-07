@@ -867,7 +867,10 @@ ul.nav li.current-page a::before {
 }
 
 #info-piece {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     min-height: 250px;
     padding: 2.5rem;
     text-align: center;
