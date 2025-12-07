@@ -25,6 +25,7 @@ body {
     font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     color: var(--text-primary);
     position: relative;
+    z-index: 0;
 }
 
 #parallax-background {
@@ -37,7 +38,7 @@ body {
     background-size: 100vw 100vh;
     background-position: center top;
     background-repeat: no-repeat;
-    z-index: -2;
+    z-index: -1;
     opacity: 0.15;
     pointer-events: none;
 }
@@ -206,8 +207,8 @@ ul.nav li a:focus {
         padding-top: min(30vh, 200px);
         flex-direction: column;
         background: rgba(10, 10, 10, 0.98);
-        backdrop-filter: blur(2px);
-        -webkit-backdrop-filter: blur(2px);
+        backdrop-filter: url(#displacementFilter) blur(2px);
+        -webkit-backdrop-filter: url(#displacementFilter) blur(2px);
         border-left: 1px solid rgba(255, 255, 255, 0.1);
         z-index: 1000;
         transform: translateX(100%);
@@ -1099,6 +1100,42 @@ ul.nav li a:focus {
     
     .project-card {
         padding: 1.5rem;
+    }
+    
+    /* Use mobile displacement filter on mobile devices */
+    .liquid-glass-enabled #hire {
+        backdrop-filter: url(#displacementFilterMobile) blur(2px);
+        -webkit-backdrop-filter: url(#displacementFilterMobile) blur(2px);
+    }
+    
+    .liquid-glass-enabled ul.nav {
+        backdrop-filter: url(#displacementFilterMobile) blur(2px);
+        -webkit-backdrop-filter: url(#displacementFilterMobile) blur(2px);
+    }
+    
+    .liquid-glass-enabled #home-div ul li a {
+        backdrop-filter: url(#displacementFilterMobile) blur(2px);
+        -webkit-backdrop-filter: url(#displacementFilterMobile) blur(2px);
+    }
+    
+    .liquid-glass-enabled .grid-card {
+        backdrop-filter: url(#displacementFilterMobile) blur(2px);
+        -webkit-backdrop-filter: url(#displacementFilterMobile) blur(2px);
+    }
+    
+    .liquid-glass-enabled .timeline-content {
+        backdrop-filter: url(#displacementFilterMobile) blur(2px);
+        -webkit-backdrop-filter: url(#displacementFilterMobile) blur(2px);
+    }
+    
+    .liquid-glass-enabled .project-card {
+        backdrop-filter: url(#displacementFilterMobile) blur(2px);
+        -webkit-backdrop-filter: url(#displacementFilterMobile) blur(2px);
+    }
+    
+    .liquid-glass-enabled #info-piece {
+        backdrop-filter: url(#displacementFilterMobile) blur(2px);
+        -webkit-backdrop-filter: url(#displacementFilterMobile) blur(2px);
     }
 }
 
