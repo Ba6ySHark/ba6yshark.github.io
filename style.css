@@ -1,14 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: rgba(0, 0, 0, 0.1);
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --text-primary: rgba(255, 255, 255, 0.95);
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-accent: #667eea;
+}
 
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    background-color:rgba(19, 17, 17, 0.925);
+    background: #0a0a0a;
+    background-attachment: fixed;
     margin: 0px;
     font-size: 62.5%;
     overflow-x: hidden;
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    color: var(--text-primary);
 }
 
 /* -- Header Section begins -- */
@@ -21,22 +36,44 @@ header {
 	display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: transparent;
-    transition: 0.6s;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 999;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 header.sticky {
-    background-color: #201d1d;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
     height: 7vh;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
 }
 
 #hire {
     text-decoration: none;
     margin: 2rem;
-    color: #e09a21;
-    font-family: "Press Start 2P";
-    font-size: 1.5em;
+    color: var(--text-primary);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+#hire:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .sr-only {
@@ -68,13 +105,45 @@ ul.nav li {
 
 ul.nav li a {
     text-decoration: none;
-    color:azure;
-    font-family: "consolas";
-    font-size: 2em;
+    color: var(--text-primary);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1em;
+    font-weight: 500;
+    padding: 0.5rem 1.2rem;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+ul.nav li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--accent-gradient);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
+}
+
+ul.nav li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+ul.nav li a:hover::before {
+    width: 60%;
 }
 
 ul.nav li.current-page a {
-    color: #e09a21;
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--text-primary);
+}
+
+ul.nav li.current-page a::before {
+    width: 60%;
 }
 
 .mobile-nav-toggle {
@@ -92,22 +161,18 @@ ul.nav li.current-page a {
         padding-top: min(30vh, 200px);
         flex-direction: column;
         inset: 0 0 0 30%;
-        background: hsl(0, 0%, 50%, 0.95);
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(30px) saturate(180%);
+        -webkit-backdrop-filter: blur(30px) saturate(180%);
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
         z-index: 1000;
         transform: translate(100%);
-        transition: 0.6s;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -8px 0 32px rgba(0, 0, 0, 0.2);
     }
 
     ul.nav[data-visible="true"] {
         transform: translate(0%);
-        transition: 0.6s;
-    }
-
-    @supports (backdrop-filter: blur(1rem)) {
-        ul.nav {
-            background: hsl(0, 0%, 100%, 0.15);
-            backdrop-filter: blur(1rem);
-        }
     }
 
     .mobile-nav-toggle {
@@ -136,35 +201,57 @@ ul.nav li.current-page a {
     background-color: transparent;
     width: 100%;
     height: 100vh;
+    position: relative;
 }
 
 #home-div {
     position: absolute;
-    width: 60%;
-    height: 25%;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    width: 80%;
+    max-width: 900px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     margin: auto;
+    padding: 4rem;
+    background: transparent;
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
 }
 
 #home-div h1 {
-    color:azure;
-    font-size: 3em;
-    font-family: "Press Start 2P";
-    letter-spacing: 2px;
+    color: var(--text-primary);
+    font-size: 4em;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    margin: 0.5em 0;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
 }
 
 #home-div h2 {
-    color:rgba(41, 36, 36, 0.925);
+    color: var(--text-secondary);
     width: 100%;
-    font-size: 3.5em;
-    font-family: consolas;
-    -webkit-text-stroke: 0.05vw #e09a21;
+    font-size: 2.2em;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 400;
     animation: typing 2.5s steps(64), blink 0.5s step-end infinite alternate;
     white-space: nowrap;
     overflow: hidden;
+    margin: 0.5em 0;
 }
 
 @keyframes typing {
@@ -173,10 +260,18 @@ ul.nav li.current-page a {
     }
 }
 
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
 #home-div h3 {
-    color: #e9b863;
-    font-size: 1.75em;
-    font-family: consolas;
+    color: var(--text-secondary);
+    font-size: 1.4em;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 300;
+    margin-bottom: 1em;
 }
 
 #home-div ul {
@@ -196,15 +291,48 @@ ul.nav li.current-page a {
     height: 30px;
 }
 
+#home-div ul li {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#home-div ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
 #home-div ul li a:hover {
-    opacity: 0.75;
+    transform: translateY(-4px) scale(1.05);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+#home-div ul li a img {
+    opacity: 0.9;
 }
 
 @media only screen and (max-width:1024px) {
+    #home-div {
+        width: 90%;
+        padding: 2rem;
+    }
+    
+    #home-div h1 {
+        font-size: 2.5em;
+    }
+    
     #home-div h2 {
-        font-size: 3.5vw;
-        -webkit-text-stroke: 0;
-        color: #e9b863;
+        font-size: 1.5em;
     }
 }
 /*-- Home section ends --*/
@@ -213,374 +341,472 @@ ul.nav li.current-page a {
 #about {
     display:block;
     width: 100%;
-    /* border: 1px solid red; */
+    padding: 4rem 0;
 }
 
 #about-header {
-    color: #201d1d;
-    font-family: "Press Start 2P";
-    font-size: 2em;
-    letter-spacing: 2px;
+    color: var(--text-primary);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.5em;
+    font-weight: 700;
+    letter-spacing: -0.02em;
     text-align: center;
     line-height: 7vh;
     position: relative;
     height: 7vh;
-    font-size: 34;
-    background-color: #e9b863;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #about-header:hover {
-    background-color: #e09a21;
+    background: rgba(255, 255, 255, 0.15);
 }
 
-#info {
-    display: block;
-    width: 100%;
-    padding-top: 50px;
-    text-align: center;
+#info-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+    align-items: stretch;
 }
 
-#info h1 {
-    color: azure;
-    font-family: consolas;
-    font-size: 3em;
+.grid-card {
+    flex: 1 1 280px;
+    padding: 2rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
 }
 
-#info h2 {
-    color: #e09a21;
-    font-family: "Press Start 2P";
+.grid-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
 }
-
 
 #description {
-    display: flex;
-    max-width: 600px;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
+    flex: 2 1 560px;
 }
 
-#img-div img {
-    width: 100%;
-    height: 90%;
-    border-radius: 50%;
-    shape-outside: round();
+@media only screen and (max-width: 900px) {
+    #description {
+        flex: 1 1 100%;
+    }
+    
+    .grid-card {
+        flex: 1 1 calc(50% - 2rem);
+    }
 }
 
-#description p {
-    color: rgb(190, 202, 202);
-    font-family: consolas;
-    font-size: 2em;
-    text-align: left;
-    padding-left: 20px;
-    padding-top: 0;
+@media only screen and (max-width: 600px) {
+    .grid-card {
+        flex: 1 1 100%;
+    }
+    
+    #description {
+        flex: 1 1 100%;
+    }
+}
+
+#description h2 {
+    color: var(--text-accent);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.3em;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5em;
+    flex-shrink: 0;
     margin-top: 0;
 }
 
-#additional-info {
+#description-content {
     display: flex;
-    max-width: 720px;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    margin-bottom: 60px;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
-}
-
-#profile {
-    display: block;
-    text-align: left;
-    width: 50%;
-}
-
-#skills {
-    display: block;
-    text-align: left;
-    width: 50%;
-    padding-left: 20px;
-}
-
-#additional-info h1 {
-    color: #e9b863;
-    font-family: "Press Start 2P";
-    font-size: 1.5em;
-    letter-spacing: 1px;
-}
-
-#additional-info h2 {
-    color:rgba(70, 62, 62, 0.925);
-    font-size: 2em;
-}
-
-#additional-info h3 {
-    color: rgb(190, 202, 202);
-    font-family: consolas;
-    font-size: 2em;
-}
-
-#additional-info p {
-    color: rgb(190, 202, 202);
-    font-family: consolas;
-    font-size: 2em;
-    text-align: left;
-}
-
-#profile p a {
-    color: #e09a21;
-    text-decoration: none;
-}
-
-#profile p a:hover {
-    color: #e9b863;
-}
-
-#skills ul {
-    display: block;
-    padding: 0;
-    margin: 0;
+    gap: 1.5rem;
+    flex: 1 1 auto;
     width: 100%;
 }
 
+#description-content h1 {
+    text-align: left;
+    width: 100%;
+    margin: 0;
+}
+
+#description-content p {
+    text-align: left;
+    width: 100%;
+    margin: 0;
+}
+
+#img-div {
+    flex-shrink: 0;
+}
+
+#img-div img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    shape-outside: circle();
+    border: 2px solid var(--glass-border);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+#description p {
+    color: var(--text-secondary);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.2em;
+    font-weight: 400;
+    line-height: 1.7;
+    text-align: left;
+    margin: 0;
+    flex: 1;
+}
+
+#profile {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+#skills {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+#additional-info h1,
+#profile h1,
+#skills h1,
+#about-education h1 {
+    color: var(--text-primary);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2em;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 1em;
+    margin-top: 0;
+}
+
+#additional-info h2,
+#data h2,
+#about-education h2 {
+    color: var(--text-accent);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-top: 1.2em;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+#additional-info h2:first-of-type,
+#data h2:first-of-type {
+    margin-top: 0;
+}
+
+#additional-info h3,
+#data h3,
+#about-education h3 {
+    color: var(--text-secondary);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.2em;
+    font-weight: 400;
+    margin: 0.4em 0;
+}
+
+#additional-info p,
+#profile p,
+#skills p {
+    color: var(--text-secondary);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.2em;
+    font-weight: 400;
+    line-height: 1.7;
+    text-align: left;
+    margin: 0.8em 0;
+}
+
+#profile p a {
+    color: var(--text-accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+#profile p a:hover {
+    color: var(--text-primary);
+}
+
+#data {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#data h2:first-child {
+    margin-top: 0;
+}
+
+#skills ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 0;
+    margin: 1em 0 0 0;
+    width: 100%;
+    flex: 1;
+    box-sizing: border-box;
+}
+
 #skills ul li {
-    display: inline-block;
-    width: 45%;
+    display: flex;
+    width: 100%;
+    max-width: 100%;
     align-items: center;
-    margin-top: 10px;
-    margin-right: 4%;
+    margin: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0.6rem 0.7rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#skills ul li span {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
 }
 
 #skills ul li:hover {
-    scale: 1.1;
-    transition: 0.6s;
+    transform: translateY(-4px) scale(1.02);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-#skills span {
-    display: flex;
-    align-items: center;
-}
 
 #skills h2 {
     line-height: 100%;
-    color: azure;
-    padding-left: 10px;
-    font-family: consolas;
-    font-size: 2.2em;
+    color: var(--text-primary);
+    padding-left: 12px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5em;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+    min-width: 0;
 }
 
 #skills img {
-    height: 35%;
-    width: 35%;
+    height: 40px;
+    width: 40px;
+    opacity: 0.9;
+    flex-shrink: 0;
+}
+
+@media only screen and (max-width: 1024px) {
+    #info-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+    
+    #description {
+        grid-column: span 1;
+    }
+    
+    #description-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    #description p {
+        text-align: justify;
+    }
+    
+    #img-div {
+        margin-bottom: 1rem;
+    }
 }
 
 @media only screen and (max-width: 720px) {
-    #description {
-        display: block;
-        width: 90%;
+    #info-grid {
+        padding: 0 1rem;
     }
-
-    #description p {
-        text-align: justify;
-        width: 90%;
-        padding-left: 0px;
-        margin: 0 auto;
+    
+    .grid-card {
+        padding: 2rem;
     }
-
-    #img-div {
-        padding-bottom: 20px;
+    
+    #description-content {
+        flex-direction: column;
     }
-
+    
     #img-div img {
-        width: 200px;
-        height: 200px;
-    }
-
-    #additional-info {
-        display: block;
-    }
-
-    #profile {
-        width: 90%;
-        text-align: center;
-        margin: 0 auto;
-        padding-top: 25px;
-    }
-
-    #profile p {
-        width: 90%;
-        text-align: justify;
-        margin: 0 auto;
-    }
-
-    #data {
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    #skills {
-        width: 90%;
-        text-align: center;
-        margin: 0 auto;
-        padding-top: 25px;
-    }
-
-    #skills p {
-        width: 90%;
-        text-align: justify;
-    }
-
-    #additional-info h2, h3 {
-        text-align: left;
+        width: 120px;
+        height: 120px;
     }
 }
 
 @media only screen and (max-width: 360px) {
     #skills ul {
-        justify-content: center;
-    }
-
-    #skills ul li {
-        width: 50%;
+        grid-template-columns: 1fr;
     }
 }
 /*-- About section ends --*/
 
-/*-- c. Education section begins here --*/
-#education {
-    display: block;
-    width: 100%;
-}
+/* Education card styling is now part of grid-card */
 
 #about-education {
-    margin-top: 10px;
-    margin-bottom: 70px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 #about-education img {
     display: block;
-    width: 250px;
-    height: 250px;
-    margin: 0 auto;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+    border-radius: 20px;
+    border: 2px solid var(--glass-border);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 #about-education div {
-    width: 460px;
+    width: 100%;
     margin: 0 auto;
-}
-
-#about-education h1 {
-    text-align: center;
-    color: #e09a21;
-    font-family: "Press Start 2P";
-    font-size: 1.85em;
-    letter-spacing: 2px;
-}
-
-#about-education h2 {
-    margin-top: 0;
-    color: #e9b863;
-    font-family: consolas;
-    font-size: 1.75em;
-}
-
-#about-education h3 {
-    color: azure;
-    font-family: consolas;
-    font-size: 1.75em;
+    text-align: left;
+    flex: 1;
 }
 
 #about-education h4 {
     margin-top: 0;
-    margin-bottom: 50px;
+    margin-bottom: 1.2rem;
     text-align: center;
-    color: rgb(190, 202, 202);
-    font-family: consolas;
-    font-size: 1.6em;
+    color: var(--text-secondary);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+#about-education ul {
+    margin: 0.5em 0;
+    padding-left: 1.2em;
 }
 
 #about-education ul li {
-    color: azure;
-    font-family: consolas;
-    font-size: 1.7em;
+    color: var(--text-secondary);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.2em;
+    font-weight: 400;
+    line-height: 1.8;
+    margin: 0.5em 0;
 }
 
 #about-education ul li a {
     text-decoration: none;
-    color: #e9b863;
+    color: var(--text-accent);
+    font-weight: 500;
+    transition: color 0.3s;
 }
 
 #about-education ul li a:hover {
-    color: #e09a21;
+    color: var(--text-primary);
 }
 
-@media only screen and (max-width: 720px) {
-    #about-education img {
-        width: 40%;
-        height: 40%;
-    }
-}
-
-@media only screen and (max-width: 520px) {
-    #about-education div {
-        width: 100%;
-        padding: 10px;
-    }
-}
 /*-- Education section ends --*/
 
 /*-- d. Projects section begins here --*/
+#projects {
+    padding: 4rem 0;
+}
+
 #projects-list {
-    display: block;
-    width: 1024px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
     margin: 50px auto;
-    padding: 0;
+    padding: 0 2rem;
+    justify-content: center;
 }
 
 #projects-list li {
     display: inline-block;
-    width: 33%;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    width: calc(50% - 1rem);
+    min-width: 300px;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 24px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#projects-list li:first-child {
-    border: 2px solid #e09a21;
-}
-
-#projects-list li:nth-child(2) img {
-    border: 2px solid cyan;
+#projects-list li:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
 }
 
 #projects-list li img {
     object-fit: cover;
     width: 100%;
-    height: 100%;
+    height: 300px;
+    display: block;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#projects-list li:hover img {
+    transform: scale(1.05);
 }
 
 @media only screen and (max-width: 1024px) {
     #projects-list {
-        width: 720px;
+        max-width: 720px;
     }
 
     #projects-list li {
-        width: 46%;
+        width: calc(50% - 1rem);
     }
 }
 
 @media only screen and (max-width: 720px) {
     #projects-list {
-        width: 100%
+        width: 100%;
+        padding: 0 1rem;
     }
 
     #projects-list li {
-        display: block;
-        margin: 20px auto;
-        width: 75%;
+        width: 100%;
+        max-width: 400px;
     }
 }
 /*-- Projects section ends here --*/
@@ -588,84 +814,119 @@ ul.nav li.current-page a {
 /*-- e. Contacts section begins here --*/
 #contact {
     overflow: hidden;
+    padding: 4rem 0;
 }
 
 #contact-info {
-    /* height: 80vh; */
     text-align: center;
 }
 
 #contact-info h1 {
-    margin-top: 15vh;
-    color: azure;
-    font-family: consolas;
-    font-size: 3.5em;
-    font-weight: bold;
+    margin-top: 5vh;
+    color: var(--text-primary);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 1rem;
 }
 
 #contact-info h2 {
-    color: #e9b863;
-    font-family: consolas;
-    font-size: 1.75em;
+    color: var(--text-secondary);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.4em;
+    font-weight: 400;
+    margin-bottom: 3rem;
 }
 
 #info-list {
-    display: block;
-    width: 1024px;
-    margin: 100px auto;
-    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 2rem;
     list-style-type: none;
+    justify-content: center;
 }
 
 #info-list li {
     display: inline-block;
-    width: 30%;
-    margin-top: 25px;
-    margin-left: 10px;
-    margin-right: 10px;
+    width: calc(33.333% - 1.5rem);
+    min-width: 280px;
+    margin: 0;
     list-style: none;
 }
 
 #info-list li img {
-    margin: 0 auto;
-    width: 30%;
-    height: 30%;
+    margin: 0 auto 1.5rem;
+    width: 60px;
+    height: 60px;
+    opacity: 0.9;
 }
 
 #info-piece {
     display: block;
-    height: 200px;
+    min-height: 250px;
+    padding: 2.5rem;
     text-align: center;
+    background: var(--glass-bg);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: 32px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#info-piece:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
 }
 
 #info-piece h1 {
-    color: #e09a21;
-    font-family: consolas;
-    font-size: 2em;
+    color: var(--text-primary);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
     margin: 0;
-    margin-top: 25px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 #info-piece p {
-    color: azure;
-    font-family: consolas;
-    font-size: 1.5em;
+    color: var(--text-secondary);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1em;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+#info-piece p a {
+    color: var(--text-accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+#info-piece p a:hover {
+    color: var(--text-primary);
 }
 
 @media only screen and (max-width: 1024px) {
     #info-list {
-        width: 720px;
+        max-width: 720px;
     }
 }
 
 @media only screen and (max-width: 720px) {
     #info-list {
         width: 100%;
+        padding: 0 1rem;
     }
 
     #info-list li {
-        width: 75%;
-        margin: 30px auto;
+        width: 100%;
+        max-width: 400px;
     }
 }
 /*-- Contacts section ends here --*/
@@ -673,17 +934,22 @@ ul.nav li.current-page a {
 /*-- Footer begins here --*/
 #bottom {
     display: flex;
-    height: 13vh;
-    background-color: rgba(41, 36, 36, 0.925);
+    min-height: 13vh;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-top: 1px solid var(--glass-border);
     align-items: center;
+    justify-content: center;
+    padding: 2rem;
 }
 
 #bottom h1 {
-    color: rgb(121, 124, 124);
-    font-size: 1.5em;
+    color: var(--text-secondary);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1em;
+    font-weight: 400;
     text-align: center;
-    margin: 0 auto;
-    padding-left: 30px;
-    padding-right: 30px;
+    margin: 0;
 }
 /*-- Footer ends here --*/
