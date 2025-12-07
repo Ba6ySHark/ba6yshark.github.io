@@ -682,6 +682,7 @@ ul.nav li a:focus {
     width: 40px;
     opacity: 0.9;
     flex-shrink: 0;
+    filter: brightness(0) invert(1);
 }
 
 @media only screen and (max-width: 1024px) {
