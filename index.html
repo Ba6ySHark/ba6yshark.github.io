@@ -25,7 +25,8 @@
         <nav id="nav-bar">
             <ul class="nav" id="nav-id" data-visible="false">
                 <li class="current-page"><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#about">Background</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -39,7 +40,7 @@
                 <p>
                     <h3>Hello world, I'm</h3>
                     <h1>Stepan Susorov</h1>
-                    <h2>Aspiring Full-stack developer</h2>
+                    <h2>Full-stack Developer</h2>
                 </p>
                 <ul>
                     <li><a href="https://github.com/Ba6ySHark"><img src="/icons/github.svg"></a></li>
@@ -60,9 +61,10 @@
                 <div id="description-content">
                     <h1>Let me introduce myself.</h1>
                     <p>
-                        I am an undergraduate Computer Science student at the University of Calgary.
-                        I enjoy coding and building Web and Desktop Applications.
-                        Therefore, I aspire to be a Full-Stack developer to learn how to make them functional yet user-friendly.
+                        I am a Computer Science student at the University of Calgary with experience in software development, 
+                        research, and teaching. I've worked as a Software Development Engineer Intern at Amazon Web Services, 
+                        taught coding at Code Ninjas, and conducted research at the University of Calgary. I enjoy building 
+                        web applications and working with modern technologies.
                     </p>
                 </div>
             </div> <!-- About me block ends here -->
@@ -70,15 +72,16 @@
             <div id="profile" class="grid-card" data-aos="zoom-in">
                 <h1>Profile</h1>
                 <p>
-                    Currently I don't have a job, so I'm open to new software engineering or research opportunities.
+                    I'm a Computer Science student at the University of Calgary with experience in software development, 
+                    research, and teaching. I'm open to new software engineering or research opportunities.
                     If you think I am a good fit, please <a href="#contact">contact</a> me.
                 </p>
                 <br>
                 <div id="data">
                     <h2>FULLNAME:</h2>
                     <h3>Stepan Susorov</h3>
-                    <h2>BIRTH DATE:</h2>
-                    <h3>April 04, 2004</h3>
+                    <h2>PHONE:</h2>
+                    <h3>587-969-4780</h3>
                     <h2>EMAIL:</h2>
                     <h3>stepan.susorov@gmail.com</h3>
                 </div>
@@ -93,14 +96,16 @@
                 </p>
                 <br>
                 <ul>
-                    <li><span><img src="/icons/html5.svg"><h2>HTML</h2></span></li>
-                    <li><span><img src="/icons/css3.svg"><h2>CSS</h2></span></li>
-                    <li><span><img src="/icons/javascript.svg"><h2>JS</h2></span></li>
                     <li><span><img src="/icons/python.svg"><h2>Python</h2></span></li>
-                    <li><span><img src="/icons/c++.svg"><h2>C++</h2></span></li>
                     <li><span><img src="/icons/java.svg"><h2>Java</h2></span></li>
-                    <li><span><img src="/icons/react.svg"><h2>ReactJS</h2></span></li>
+                    <li><span><img src="/icons/c++.svg"><h2>C++</h2></span></li>
+                    <li><span><img src="/icons/html5.svg"><h2>HTML/CSS</h2></span></li>
+                    <li><span><img src="/icons/javascript.svg"><h2>JavaScript</h2></span></li>
+                    <li><span><img src="/icons/javascript.svg"><h2>TypeScript</h2></span></li>
+                    <li><span><img src="/icons/react.svg"><h2>React</h2></span></li>
+                    <li><span><img src="/icons/react.svg"><h2>Next.js</h2></span></li>
                     <li><span><img src="/icons/django.svg"><h2>Django</h2></span></li>
+                    <li><span><img src="/icons/javascript.svg"><h2>SQL</h2></span></li>
                 </ul>
             </div> <!-- Skills block ends here -->
             <!-- Education block starts here -->
@@ -109,38 +114,106 @@
                 <h1>University of Calgary</h1>
                 <h4>Calgary, Canada</h4>
                 <div>
-                    <h3>Degree: Bachelor of Science in Computer Science</h3>
-                    <h3>CGPA: 3.71/4.00</h3>
+                    <h3>Degree: Bachelor of Science, Computer Science</h3>
+                    <h3>Expected Graduation: May 2026</h3>
                     <br>
-                    <h2>Entrance awards:</h2>
+                    <h2>Awards & Programs:</h2>
                     <ul>
                         <li>President's Admission Scholarship</li>
+                        <li>Science Internship Program</li>
                     </ul>
                     <br>
                     <h2>Relevant Coursework:</h2>
                     <ul>
-                        <li><a href="https://contacts.ucalgary.ca/info/cpsc/courses/w20/CPSC233">CPSC 233</a>: OOP</li>
-                        <li><a href="https://contacts.ucalgary.ca/info/cpsc/courses/f22/CPSC251">CPSC 251</a>: Theoretical Foundations of CS</li>
-                        <li><a href="https://contacts.ucalgary.ca/info/cpsc/courses/f22/CPSC331?destination=courses">CPSC 331</a>: Data Structures and Algorithms</li>
-                        <li><a href="https://contacts.ucalgary.ca/info/cpsc/courses/w22/SENG300">SENG 300</a>: Software engineering I</li>
+                        <li>Data Structures & Algorithms</li>
+                        <li>Database Management</li>
+                        <li>Web-based Systems</li>
                     </ul>
                 </div>
             </div> <!-- Education block ends here -->
         </div>
     </section> <!-- About section ends here -->
 
+    <!-- c. Experience section begins here -->
+    <section id="experience">
+        <div id="about-header">Experience</div>
+        <div id="experience-timeline" data-aos="zoom-in">
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">May 2025 – July 2025</div>
+                    <h1>Software Development Engineer Intern</h1>
+                    <h2>Amazon Web Services</h2>
+                    <ul>
+                        <li>Designing and implementing the EBS Task Attach with Encryption Context feature for Amazon ECS, introducing additional per-task EBS encryption and strengthening data-at-rest protection for sensitive workloads</li>
+                        <li>Redesigning the volume-attach asynchronous workflow, streamlining task launches while minimizing encryption overhead for data-intensive applications</li>
+                        <li>Developing comprehensive unit and integration test suites, safeguarding release quality and enabling seamless production rollouts; authoring design documentation vetted by senior engineers</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">July 2024 – April 2025</div>
+                    <h1>Coding Instructor</h1>
+                    <h2>Code Ninjas</h2>
+                    <ul>
+                        <li>Taught game development using Unity and C# to students ages 7-14, guiding them through the creation of 2D and 3D games while developing their programming and design skills</li>
+                        <li>Mentored students in building complex Unity projects, including physics-based simulations, character controllers, and AI behaviors, ensuring understanding of core game development principles</li>
+                        <li>Provided one-on-one guidance in debugging and optimizing C# scripts, improving student project performance by 25% and fostering confidence in troubleshooting</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">March 2024 – December 2025</div>
+                    <h1>Research Intern</h1>
+                    <h2>University of Calgary</h2>
+                    <ul>
+                        <li>Developed an AI-powered health application that personalized recommendations of health-related papers to users, leveraging a fine-tuned LLaMA 3 open-source model to tailor suggestions based on user backgrounds</li>
+                        <li>Implemented advanced Item-based Collaborative Filtering, using SciBERT language model to analyze and compute similarity between academic papers, improving recommendation relevance by 35%</li>
+                        <li>Automated CI/CD pipelines using GitHub Actions to maintain synchronization of production code with the main branch, reducing integration errors and improving deployment efficiency</li>
+                        <li>Designed and developed an intuitive user interface, ensuring seamless navigation and user experience across various devices, enhancing accessibility for non-technical users</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">January 2024 – June 2024</div>
+                    <h1>Research Assistant</h1>
+                    <h2>University of Calgary</h2>
+                    <ul>
+                        <li>Developed a cutting-edge mental health mobile application using JavaScript and React Native, improving user engagement by 30% and enhancing mental health tracking accuracy through innovative design and functionality</li>
+                        <li>Created and optimized a comprehensive project documentation system, reducing documentation errors by 40% and improving project workflow efficiency across team members</li>
+                        <li>Co-authored and contributed to the preparation of a research manuscript, increasing citation rates by 15%. Prepared written proposals that resulted in extended research project funding</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section> <!-- Experience section ends here -->
+
     <!-- d. Projects section begins here -->
     <section id="projects">
         <div id="about-header">Projects</div>
-        <div data-aos="zoom-in">
-            <ul id="projects-list">
-                <li><div>
-                     <img src="/images/portfolio.jpg">
-                </div></li>
-                <li><div>
-                    <img src="/images/loader2.png">
-                </div></li>
-            </ul>
+        <div id="projects-grid" data-aos="zoom-in">
+            <div class="project-card">
+                <h1>For Your Research</h1>
+                <div class="project-date">October 2023 – April 2024</div>
+                <div class="project-tech">TypeScript, React, Python, Django</div>
+                <p>
+                    Collaborated with a cross-functional team of nine, including a Project Manager, Business Strategists, Frontend Developers, Backend Developers and a UI/UX designer. Created an MVP of a research automation tool that helps scholars to iterate through literature review at a faster pace. Implemented session-based authentication using Django REST Framework.
+                </p>
+            </div>
+            <div class="project-card">
+                <h1>Pathfinding Algorithms Visualizer</h1>
+                <div class="project-date">August 2023 – September 2023</div>
+                <div class="project-tech">HTML, CSS, JavaScript, React</div>
+                <p>
+                    Used JavaScript to implement search algorithms (ex. BFS, DFS, Dijkstra and A*) on a 2-dimensional grid. Managed states in React to animate the search process and shortest path. Hosted this project using GitHub Pages, making it accessible to everyone on the Internet.
+                </p>
+            </div>
         </div>
     </section> <!-- Projects section ends here -->
 
@@ -163,7 +236,7 @@
                 <li><div id="info-piece">
                     <img src="/icons/gmail.svg">
                     <h1>Email me</h1>
-                    <p>stepan.susorov@ucalgary.ca<br><br><br></p>
+                    <p>stepan.susorov@gmail.com<br><br><br></p>
                 </div></li>
                 <li><div id="info-piece">
                     <img src="/icons/linkedin.svg">
@@ -189,6 +262,39 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init();
+    </script>
+    <script>
+        // Timeline marker glow effect on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const markers = document.querySelectorAll('.timeline-marker');
+            
+            // Use Intersection Observer to detect which item is in view
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -20% 0px',
+                threshold: 0.5
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    const marker = entry.target.querySelector('.timeline-marker');
+                    if (entry.isIntersecting) {
+                        // Remove active class from all markers
+                        markers.forEach(m => m.classList.remove('active'));
+                        // Add active class to current marker
+                        if (marker) {
+                            marker.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe each timeline item
+            timelineItems.forEach(item => {
+                observer.observe(item);
+            });
+        });
     </script>
 </body>
 
