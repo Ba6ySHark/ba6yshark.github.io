@@ -114,6 +114,8 @@ ul.nav li a {
     border-radius: 12px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    outline: none;
+    border: none;
 }
 
 ul.nav li a::before {
@@ -132,6 +134,7 @@ ul.nav li a::before {
 ul.nav li a:hover {
     background: rgba(255, 255, 255, 0.1);
     color: var(--text-primary);
+    outline: none;
 }
 
 ul.nav li a:hover::before {
@@ -141,10 +144,16 @@ ul.nav li a:hover::before {
 ul.nav li.current-page a {
     background: rgba(255, 255, 255, 0.15);
     color: var(--text-primary);
+    outline: none;
 }
 
 ul.nav li.current-page a::before {
     width: 60%;
+}
+
+ul.nav li a:focus {
+    outline: none;
+    box-shadow: none;
 }
 
 .mobile-nav-toggle {
@@ -158,22 +167,50 @@ ul.nav li.current-page a::before {
 
     ul.nav {
         position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 30%;
         margin: 0;
         padding-top: min(30vh, 200px);
         flex-direction: column;
-        inset: 0 0 0 30%;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(10, 10, 10, 0.98);
         backdrop-filter: blur(30px) saturate(180%);
         -webkit-backdrop-filter: blur(30px) saturate(180%);
         border-left: 1px solid rgba(255, 255, 255, 0.1);
         z-index: 1000;
-        transform: translate(100%);
+        transform: translateX(100%);
         transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: -8px 0 32px rgba(0, 0, 0, 0.2);
+        box-shadow: -8px 0 32px rgba(0, 0, 0, 0.5);
+        width: 70%;
+        height: 100vh;
+    }
+
+    ul.nav[data-visible="true"] {
+        transform: translateX(0%);
     }
 
     ul.nav[data-visible="true"] {
         transform: translate(0%);
+    }
+    
+    ul.nav li a {
+        color: var(--text-primary);
+        font-size: 1.3em;
+        padding: 1rem 1.5rem;
+        margin: 0.5rem 1rem;
+        border-radius: 12px;
+        outline: none;
+        border: none;
+    }
+    
+    ul.nav li.current-page a {
+        background: rgba(255, 255, 255, 0.15);
+    }
+    
+    ul.nav li a:focus {
+        outline: none;
+        box-shadow: none;
     }
 
     .mobile-nav-toggle {
@@ -181,7 +218,6 @@ ul.nav li.current-page a::before {
         position: absolute;
         width: 2rem;
         aspect-ratio: 1;
-        /* top: 1.5rem; */
         right: 2rem;
         background-color: transparent;
         background-image: url("/icons/menu.png");
@@ -189,10 +225,13 @@ ul.nav li.current-page a::before {
         background-repeat: no-repeat;
         border: 0;
         z-index: 1001;
+        filter: brightness(0) invert(1);
+        opacity: 0.9;
     }
 
     .mobile-nav-toggle[aria-expanded="true"] {
         background-image: url("/icons/close.svg");
+        filter: brightness(0) invert(1);
     }
 }
 /* -- Header section ends -- */
@@ -282,7 +321,7 @@ ul.nav li.current-page a::before {
     float: left;
     padding-left: 0;
     align-content: center;
-    justify-content: center;
+    justify-content: flex-start;
     margin-left: 0;
     list-style: none;
 }
@@ -334,6 +373,21 @@ ul.nav li.current-page a::before {
     
     #home-div h2 {
         font-size: 1.5em;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #home-div ul {
+        gap: 3em;
+        justify-content: flex-start;
+        width: auto;
+        float: none;
+    }
+    
+    #home-div ul li a {
+        width: 35px;
+        height: 35px;
+        padding: 6px;
     }
 }
 /*-- Home section ends --*/
@@ -687,16 +741,26 @@ ul.nav li.current-page a::before {
     text-align: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
-#about-education img {
+#about-education img,
+#about-education > img,
+.grid-card#about-education img {
     display: block;
     width: 120px;
     height: 120px;
     margin: 0 auto 1.5rem;
-    border-radius: 20px;
-    border: 2px solid var(--glass-border);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    align-self: center;
+    border: 0 !important;
+    border-width: 0 !important;
+    border-style: none !important;
+    border-color: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
 }
 
 #about-education div {
