@@ -370,7 +370,7 @@ ul.nav li.current-page a::before {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 3rem auto;
     padding: 0 2rem;
     align-items: stretch;
@@ -427,7 +427,7 @@ ul.nav li.current-page a::before {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    margin-bottom: 0.5em;
+    margin-bottom: 1.5em;
     flex-shrink: 0;
     margin-top: 0;
 }
@@ -446,6 +446,7 @@ ul.nav li.current-page a::before {
     text-align: left;
     width: 100%;
     margin: 0;
+    font-size: 2em;
 }
 
 #description-content p {
@@ -470,7 +471,7 @@ ul.nav li.current-page a::before {
 #description p {
     color: var(--text-secondary);
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 2.2em;
+    font-size: 1.9em;
     font-weight: 400;
     line-height: 1.7;
     text-align: left;
@@ -496,7 +497,7 @@ ul.nav li.current-page a::before {
 #about-education h1 {
     color: var(--text-primary);
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 2em;
+    font-size: 1.7em;
     font-weight: 600;
     letter-spacing: -0.01em;
     margin-bottom: 1em;
@@ -526,7 +527,7 @@ ul.nav li.current-page a::before {
 #about-education h3 {
     color: var(--text-secondary);
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 2.2em;
+    font-size: 1.9em;
     font-weight: 400;
     margin: 0.4em 0;
 }
@@ -536,7 +537,7 @@ ul.nav li.current-page a::before {
 #skills p {
     color: var(--text-secondary);
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 2.2em;
+    font-size: 1.9em;
     font-weight: 400;
     line-height: 1.7;
     text-align: left;
@@ -722,7 +723,7 @@ ul.nav li.current-page a::before {
 #about-education ul li {
     color: var(--text-secondary);
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 2.2em;
+    font-size: 1.9em;
     font-weight: 400;
     line-height: 1.8;
     margin: 0.5em 0;
