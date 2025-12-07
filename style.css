@@ -505,7 +505,7 @@ ul.nav li a:focus {
 }
 
 #description-content p {
-    text-align: left;
+    text-align: justify;
     width: 100%;
     margin: 0;
 }
@@ -529,7 +529,7 @@ ul.nav li a:focus {
     font-size: 1.9em;
     font-weight: 400;
     line-height: 1.7;
-    text-align: left;
+    text-align: justify;
     margin: 0;
     flex: 1;
 }
@@ -595,7 +595,7 @@ ul.nav li a:focus {
     font-size: 1.9em;
     font-weight: 400;
     line-height: 1.7;
-    text-align: left;
+    text-align: justify;
     margin: 0.8em 0;
 }
 
@@ -793,6 +793,7 @@ ul.nav li a:focus {
     font-weight: 400;
     line-height: 1.8;
     margin: 0.5em 0;
+    text-align: justify;
 }
 
 #about-education ul li a {
@@ -930,6 +931,7 @@ ul.nav li a:focus {
     margin: 0.8em 0;
     padding-left: 1.5em;
     position: relative;
+    text-align: justify;
 }
 
 .timeline-content ul li::before {
@@ -1030,6 +1032,7 @@ ul.nav li a:focus {
     font-weight: 400;
     line-height: 1.7;
     margin: 0;
+    text-align: justify;
 }
 
 @media only screen and (max-width: 768px) {
@@ -1081,6 +1084,7 @@ ul.nav li a:focus {
     padding: 0 2rem;
     list-style-type: none;
     justify-content: center;
+    box-sizing: border-box;
 }
 
 #info-list li {
@@ -1089,6 +1093,7 @@ ul.nav li a:focus {
     min-width: 280px;
     margin: 0;
     list-style: none;
+    box-sizing: border-box;
 }
 
 #info-list li img {
@@ -1113,6 +1118,8 @@ ul.nav li a:focus {
     border-radius: 32px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+    width: 100%;
 }
 
 #info-piece:hover {
@@ -1136,6 +1143,7 @@ ul.nav li a:focus {
     font-size: 1.1em;
     font-weight: 400;
     line-height: 1.6;
+    text-align: justify;
 }
 
 #info-piece p a {
@@ -1159,11 +1167,29 @@ ul.nav li a:focus {
     #info-list {
         width: 100%;
         padding: 0 1rem;
+        box-sizing: border-box;
     }
 
     #info-list li {
         width: 100%;
-        max-width: 400px;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+    
+    #info-piece {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    #info-list {
+        padding: 0 0.75rem;
+    }
+    
+    #info-piece {
+        padding: 2rem 1.5rem;
     }
 }
 /*-- Contacts section ends here --*/
