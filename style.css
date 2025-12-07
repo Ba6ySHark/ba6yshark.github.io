@@ -19,12 +19,38 @@ html {
 
 body {
     background: #0a0a0a;
-    background-attachment: fixed;
     margin: 0px;
     font-size: 62.5%;
     overflow-x: hidden;
     font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
     color: var(--text-primary);
+    position: relative;
+}
+
+#parallax-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/images/background.jpg');
+    background-size: 100vw 100vh;
+    background-position: center top;
+    background-repeat: no-repeat;
+    z-index: -2;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Ensure sections appear above background */
+section {
+    position: relative;
+    z-index: 1;
+}
+
+#particles-js {
+    position: relative;
+    z-index: 0;
 }
 
 /* -- Header Section begins -- */
@@ -38,8 +64,8 @@ header {
     justify-content: space-between;
     align-items: center;
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 999;
@@ -48,8 +74,8 @@ header {
 
 header.sticky {
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(30px) saturate(180%);
-    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
     height: 7vh;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
 }
@@ -63,12 +89,17 @@ header.sticky {
     font-weight: 600;
     padding: 0.8rem 2rem;
     background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.liquid-glass-enabled #hire {
+    backdrop-filter: url(#displacementFilter) blur(2px);
+    -webkit-backdrop-filter: url(#displacementFilter) blur(2px);
 }
 
 #hire:hover {
@@ -175,8 +206,8 @@ ul.nav li a:focus {
         padding-top: min(30vh, 200px);
         flex-direction: column;
         background: rgba(10, 10, 10, 0.98);
-        backdrop-filter: blur(30px) saturate(180%);
-        -webkit-backdrop-filter: blur(30px) saturate(180%);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
         border-left: 1px solid rgba(255, 255, 255, 0.1);
         z-index: 1000;
         transform: translateX(100%);
@@ -184,6 +215,11 @@ ul.nav li a:focus {
         box-shadow: -8px 0 32px rgba(0, 0, 0, 0.5);
         width: 70%;
         height: 100vh;
+    }
+    
+    .liquid-glass-enabled ul.nav {
+        backdrop-filter: url(#displacementFilter) blur(2px);
+        -webkit-backdrop-filter: url(#displacementFilter) blur(2px);
     }
 
     ul.nav[data-visible="true"] {
@@ -343,12 +379,17 @@ ul.nav li a:focus {
     height: 40px;
     padding: 8px;
     background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     border: 1px solid var(--glass-border);
     border-radius: 12px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.liquid-glass-enabled #home-div ul li a {
+    backdrop-filter: url(#displacementFilter) blur(2px);
+    -webkit-backdrop-filter: url(#displacementFilter) blur(2px);
 }
 
 #home-div ul li a:hover {
@@ -410,8 +451,8 @@ ul.nav li a:focus {
     position: relative;
     height: 7vh;
     background: var(--glass-bg);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-top: 1px solid var(--glass-border);
     border-bottom: 1px solid var(--glass-border);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -435,8 +476,8 @@ ul.nav li a:focus {
     flex: 1 1 280px;
     padding: 2rem;
     background: var(--glass-bg);
-    backdrop-filter: blur(30px) saturate(180%);
-    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     border: 1px solid var(--glass-border);
     border-radius: 24px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -444,6 +485,11 @@ ul.nav li a:focus {
     display: flex;
     flex-direction: column;
     min-height: 500px;
+}
+
+.liquid-glass-enabled .grid-card {
+    backdrop-filter: url(#displacementFilter) blur(2px);
+    -webkit-backdrop-filter: url(#displacementFilter) blur(2px);
 }
 
 .grid-card:hover {
@@ -878,13 +924,18 @@ ul.nav li a:focus {
 
 .timeline-content {
     background: var(--glass-bg);
-    backdrop-filter: blur(30px) saturate(180%);
-    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     border: 1px solid var(--glass-border);
     border-radius: 24px;
     padding: 2rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.liquid-glass-enabled .timeline-content {
+    backdrop-filter: url(#displacementFilter) blur(2px);
+    -webkit-backdrop-filter: url(#displacementFilter) blur(2px);
 }
 
 .timeline-content:hover {
@@ -986,13 +1037,18 @@ ul.nav li a:focus {
 
 .project-card {
     background: var(--glass-bg);
-    backdrop-filter: blur(30px) saturate(180%);
-    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     border: 1px solid var(--glass-border);
     border-radius: 24px;
     padding: 2rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.liquid-glass-enabled .project-card {
+    backdrop-filter: url(#displacementFilter) blur(2px);
+    -webkit-backdrop-filter: url(#displacementFilter) blur(2px);
 }
 
 .project-card:hover {
@@ -1112,14 +1168,19 @@ ul.nav li a:focus {
     padding: 2.5rem;
     text-align: center;
     background: var(--glass-bg);
-    backdrop-filter: blur(30px) saturate(180%);
-    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     border: 1px solid var(--glass-border);
     border-radius: 32px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-sizing: border-box;
     width: 100%;
+}
+
+.liquid-glass-enabled #info-piece {
+    backdrop-filter: url(#displacementFilter) blur(2px);
+    -webkit-backdrop-filter: url(#displacementFilter) blur(2px);
 }
 
 #info-piece:hover {
