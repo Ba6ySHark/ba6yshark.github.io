@@ -124,10 +124,6 @@ header.sticky {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
-.liquid-glass-enabled #hire {
-    backdrop-filter: url(#displacementFilter) blur(2px);
-    -webkit-backdrop-filter: url(#displacementFilter) blur(2px);
-}
 
 #hire:hover {
     background: rgba(255, 255, 255, 0.15);
@@ -233,8 +229,8 @@ ul.nav li a:focus {
         padding-top: min(30vh, 200px);
         flex-direction: column;
         background: rgba(10, 10, 10, 0.98);
-        backdrop-filter: url(#displacementFilter) blur(2px);
-        -webkit-backdrop-filter: url(#displacementFilter) blur(2px);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         border-left: 1px solid rgba(255, 255, 255, 0.1);
         z-index: 1000;
         transform: translateX(100%);
@@ -244,10 +240,6 @@ ul.nav li a:focus {
         height: 100vh;
     }
     
-    .liquid-glass-enabled ul.nav {
-        backdrop-filter: url(#displacementFilter) blur(2px);
-        -webkit-backdrop-filter: url(#displacementFilter) blur(2px);
-    }
 
     ul.nav[data-visible="true"] {
         transform: translateX(0%);
@@ -414,10 +406,6 @@ ul.nav li a:focus {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
-.liquid-glass-enabled #home-div ul li a {
-    backdrop-filter: url(#displacementFilter) blur(2px);
-    -webkit-backdrop-filter: url(#displacementFilter) blur(2px);
-}
 
 #home-div ul li a:hover {
     transform: translateY(-4px) scale(1.05);
@@ -514,10 +502,6 @@ ul.nav li a:focus {
     min-height: 500px;
 }
 
-.liquid-glass-enabled .grid-card {
-    backdrop-filter: url(#displacementFilter) blur(2px);
-    -webkit-backdrop-filter: url(#displacementFilter) blur(2px);
-}
 
 .grid-card:hover {
     transform: translateY(-4px);
@@ -960,10 +944,6 @@ ul.nav li a:focus {
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.liquid-glass-enabled .timeline-content {
-    backdrop-filter: url(#displacementFilter) blur(2px);
-    -webkit-backdrop-filter: url(#displacementFilter) blur(2px);
-}
 
 .timeline-content:hover {
     transform: translateY(-4px);
@@ -1073,10 +1053,6 @@ ul.nav li a:focus {
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.liquid-glass-enabled .project-card {
-    backdrop-filter: url(#displacementFilter) blur(2px);
-    -webkit-backdrop-filter: url(#displacementFilter) blur(2px);
-}
 
 .project-card:hover {
     transform: translateY(-4px);
@@ -1128,41 +1104,6 @@ ul.nav li a:focus {
         padding: 1.5rem;
     }
     
-    /* Use mobile displacement filter on mobile devices */
-    .liquid-glass-enabled #hire {
-        backdrop-filter: url(#displacementFilterMobile) blur(2px);
-        -webkit-backdrop-filter: url(#displacementFilterMobile) blur(2px);
-    }
-    
-    .liquid-glass-enabled ul.nav {
-        backdrop-filter: url(#displacementFilterMobile) blur(2px);
-        -webkit-backdrop-filter: url(#displacementFilterMobile) blur(2px);
-    }
-    
-    .liquid-glass-enabled #home-div ul li a {
-        backdrop-filter: url(#displacementFilterMobile) blur(2px);
-        -webkit-backdrop-filter: url(#displacementFilterMobile) blur(2px);
-    }
-    
-    .liquid-glass-enabled .grid-card {
-        backdrop-filter: url(#displacementFilterMobile) blur(2px);
-        -webkit-backdrop-filter: url(#displacementFilterMobile) blur(2px);
-    }
-    
-    .liquid-glass-enabled .timeline-content {
-        backdrop-filter: url(#displacementFilterMobile) blur(2px);
-        -webkit-backdrop-filter: url(#displacementFilterMobile) blur(2px);
-    }
-    
-    .liquid-glass-enabled .project-card {
-        backdrop-filter: url(#displacementFilterMobile) blur(2px);
-        -webkit-backdrop-filter: url(#displacementFilterMobile) blur(2px);
-    }
-    
-    .liquid-glass-enabled #info-piece {
-        backdrop-filter: url(#displacementFilterMobile) blur(2px);
-        -webkit-backdrop-filter: url(#displacementFilterMobile) blur(2px);
-    }
 }
 
 /*-- Projects section ends here --*/
@@ -1241,10 +1182,6 @@ ul.nav li a:focus {
     width: 100%;
 }
 
-.liquid-glass-enabled #info-piece {
-    backdrop-filter: url(#displacementFilter) blur(2px);
-    -webkit-backdrop-filter: url(#displacementFilter) blur(2px);
-}
 
 #info-piece:hover {
     transform: translateY(-8px);
