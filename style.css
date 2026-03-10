@@ -69,6 +69,16 @@ body {
     pointer-events: none;
 }
 
+/* Desktop-only background image (Issue request)
+   - desktop: > 1024px
+   - hide on tablet/mobile to reduce clutter and improve performance
+*/
+@media only screen and (max-width: 1024px) {
+    #parallax-background {
+        display: none;
+    }
+}
+
 /* Ensure sections appear above background */
 section {
     position: relative;
